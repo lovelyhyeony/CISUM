@@ -28,12 +28,12 @@ script.
 
         $(document).on('mouseover', '.item-handle-list', function() {
             var index = $(this).attr("data-index");
-            $("#play_view_tr_" + index).css("border-right", "5px solid yellow")
+            $("#play_view_tr_" + index).css("border-right", "5px solid rgb(253, 181, 63)")
         })
 
         $(document).on('mouseover', '.play-list', function() {
             var index = $(this).attr("data-index");
-            $("#play_view_tr_" + index).css("border-right", "5px solid yellow")
+            $("#play_view_tr_" + index).css("border-right", "5px solid rgb(253, 181, 63)")
         })
 
         $(document).on('mouseleave', '.item-handle-list', function() {
@@ -50,6 +50,7 @@ script.
 style.
     button {
         margin: 3px;
+        cursor: pointer;
     }
 
     .play-list {
@@ -58,6 +59,7 @@ style.
 
     tr, td {
         opacity: 1;
+        cursor: pointer;
     }
 
     #play-list-table {
