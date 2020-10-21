@@ -8,8 +8,8 @@ block content
       ul
         li
           a(href="/").fab.fa-napster
-        li
-          a(href="#").fas.fa-check
+        li 
+          a(href="#", id="login_a").fas.fa-check
     section(id="main_section")
       aside(id="left_menu")
         include ./cisumList.pug
@@ -23,4 +23,5 @@ block content
     address Contact US
       a(href="https://www.youtube.com/")
         i.fab.fa-youtube
-      a(href="https://www.instagram.com/plutorxr/").fab.fa-instagram
+      a(href="https://www.instagram.com/plutorxr/")
+        i.fab.fa-instagram
