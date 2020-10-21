@@ -5,13 +5,8 @@
   padding: 0;
 }
 
-body {
-  background-color: rgb(50, 50, 50);
-}
-
-#login_body {
-  margin: 0;
-  padding: 0;
+article#login_body {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #login_body form {
@@ -35,6 +30,23 @@ body {
 
   -moz-animation-name: login_box_top_down;
   -moz-animation-duration: 0.8s;
+}
+
+#login_body form .login_close {
+  text-align: right;
+}
+
+#login_body form span {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  color: dodgerblue;
+  cursor: pointer;
+  text-align: right;
+}
+
+#login_body form span:hover {
+  color: rgb(220, 85, 96);
 }
 
 #login_body form h2 {
@@ -83,7 +95,7 @@ body {
   from {
     top: -300px;
     /*투명색*/
-    opacity: 0;
+    opacity: 1;
   }
 
   to {

@@ -3,14 +3,15 @@ script.
         document.querySelector("#register").addEventListener("click", function () {
             document.location.href = "/cisum/join";
         })
+        document.querySelector("#login_span").style.display = "none";
     })
 link(rel="stylesheet", href="/stylesheets/login.css")
-body
-    article(id="login_body")
-        form
-            h2 LOGIN
-            input(name="m_userid", placeholder="ID", typw="text")
-            input(name="m_password", placeholder="Password", type="password")
-            button 로그인
-            button(id="register", type="button") 회원가입
-            span &times;
+article(id="login_body")
+    form
+        div.login_close
+            span(id="login_span") &times;
+        h2 LOGIN
+        input(name="m_userid", placeholder="ID", typw="text")
+        input(name="m_password", placeholder="Password", type="password")
+        button 로그인
+        button(id="register", type="button") 회원가입

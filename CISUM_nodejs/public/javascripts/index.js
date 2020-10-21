@@ -1,18 +1,19 @@
-const openButton = document.getElementById("login_a");
-const modal = document.querySelector("article#modal-body");
-const overlay = modal.querySelector("section");
-const closeButton = modal.querySelector("span");
+$(function(){
+  $("#login_a").click(function(){
+    $.ajax({
+      url: "/cisum/login",
+      type: "GET",
+      success: function(result){  
+        $("section#login_modal").html(result);
+      },
+      error: function(error){
+        alert("서버 통신 오류 :(")
+      }
+    })
+  })
+  $("section#login_modal").css("display","block");
 
-// 동작 함수
-const opneMdodal = () => {
-  modal.classList.remove("hidden");
-};
-
-const closeModal = () => {
-  modal.classList.add("hidden");
-};
-
-// 클릭이벤트
-openButton.addEventListener("click", opneMdodal);
-closeButton.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
+  //$("span#login_span").click(function(){
+    // $("section#login_modal").css("display","none");
+  //})
+})
