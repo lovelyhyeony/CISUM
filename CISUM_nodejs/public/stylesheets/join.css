@@ -98,7 +98,7 @@ table#join-table td button:hover {
 }
 
 form#join-form input {
-  width: 150%;
+  width: 100%;
   padding: 5px 10px;
   margin: 5px;
   outline: none;
