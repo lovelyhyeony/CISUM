@@ -48,13 +48,13 @@ fieldset {
 legend {
   color: var(--accent-color);
   font-weight: bold;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "Jua", sans-serif;
 }
 
 table {
   margin: 0 auto;
   width: 100%;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "Jua", sans-serif;
 }
 
 tr td:first-child {
@@ -76,12 +76,14 @@ table#birth tr td input {
 }
 
 td button {
+  font-family: "Jua", sans-serif;
   background-color: var(--accent-color);
   color: var(--text-color);
   padding: 3px;
   border: 2px solid var(--accent-color);
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 td button:hover {
@@ -96,6 +98,7 @@ input {
   outline: none;
   border: 1px solid #ddd;
   border-radius: 4px;
+  font-family: "Jua", sans-serif;
 }
 
 a {

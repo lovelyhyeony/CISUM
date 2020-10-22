@@ -1,5 +1,10 @@
 link(rel="stylesheet", href="/stylesheets/join.css")
-
+script.
+    $(document).ready(function() {
+        $("#login-span").click(function () {
+            $("div#login-modal").css("display", "none");
+        });
+    });
 body
     form(action="#", method="post")
         fieldset
@@ -24,7 +29,7 @@ body
                 tr
                     td 비밀번호
                     td
-                        input(id="re_password", type="password", placeholder="비밀번호 재입력")
+                        input(id="re-password", type="password", placeholder="비밀번호 재입력")
         fieldset
             legend 추가 입력 사항
             table(id="birth")
