@@ -1,21 +1,24 @@
 link(rel="stylesheet", href="/stylesheets/join.css")
 script.
     $(document).ready(function() {
-        $("#login-span").click(function () {
+        $("#join-span").click(function () {
+            $("form#join-form").css("display", "none");
             $("div#login-modal").css("display", "none");
         });
     });
 body
-    form(action="#", method="post")
+    form(id="join-form", action="#", method="post")
+        div.join_close
+            span(id="join-span") &times;
         fieldset
             legend 필수 입력 사항
-            table
+            table(id="join-table")
                 tr
                     td 아이디
                     td
                         input(id="id", type="text", name="cs_id", placeholder="ID를 입력해주세요")
                     td
-                        button 아이디 중복 확인
+                        button(id="id-check") 아이디 중복 확인
                 tr
                     td 이메일
                     td
@@ -27,10 +30,10 @@ body
                     td
                         input(id="password", type="password", name="cs_password", placeholder="비밀번호를 입력해주세요")
                 tr
-                    td 비밀번호
+                    td 비밀번호 확인
                     td
                         input(id="re-password", type="password", placeholder="비밀번호 재입력")
-        fieldset
+        fieldset(id="birth-fieldset")
             legend 추가 입력 사항
             table(id="birth")
                 tr
@@ -38,5 +41,5 @@ body
                         label 생년월일
                     td
                         input(type="text", id="datepicker", name="cs_date", placeholder="생년월일을 입력해주세요")
-            p
-                a(href="/cisum/join") 회원가입
+        div.join_move_login
+            a(id="join-a" href="/cisum/login") 회원가입

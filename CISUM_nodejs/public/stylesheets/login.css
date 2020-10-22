@@ -42,7 +42,6 @@ article#login-body {
   font-weight: 500;
   color: dodgerblue;
   cursor: pointer;
-  text-align: right;
 }
 
 #login-body form span:hover {
