@@ -52,6 +52,7 @@ article#login_body {
 #login_body form h2 {
   color: dodgerblue;
   font-weight: 500;
+  font-family: "Nanum Myeongjo", serif;
 }
 
 #login_body form input,
@@ -66,6 +67,7 @@ article#login_body {
   border: 0;
   border-radius: 4px;
   transition: 0.5s;
+  font-family: "Nanum Myeongjo", serif;
 }
 
 #login_body form input {
@@ -83,6 +85,7 @@ article#login_body {
   border: 2px solid dodgerblue;
   color: dodgerblue;
   font-weight: bold;
+  font-family: "Nanum Myeongjo", serif;
 }
 
 #login_body form button:hover {

@@ -91,12 +91,14 @@ section#main_section {
   overflow: auto;
   display: flex;
   color: var(--text-color);
+  font-family: "Nanum Myeongjo", serif;
 }
 
 #main_section aside {
   flex: 1px;
   overflow: auto;
   background-color: var(--background-color);
+  font-family: "Nanum Myeongjo", serif;
 }
 
 /* 오른쪽 메뉴 동영상 크기 줄이기 */
@@ -111,6 +113,7 @@ section#main_section {
   flex: 3px;
   overflow: auto;
   background-color: var(--background-color2);
+  font-family: "Nanum Myeongjo", serif;
 }
 
 footer {

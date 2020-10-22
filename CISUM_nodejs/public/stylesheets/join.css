@@ -48,11 +48,13 @@ fieldset {
 legend {
   color: var(--accent-color);
   font-weight: bold;
+  font-family: "Nanum Myeongjo", serif;
 }
 
 table {
   margin: 0 auto;
   width: 100%;
+  font-family: "Nanum Myeongjo", serif;
 }
 
 tr td:first-child {
