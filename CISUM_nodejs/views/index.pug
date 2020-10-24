@@ -20,10 +20,16 @@ block content
         div(id="player-body").loading
           include ./player.pug
   footer
-    .w3-half
-      button(type="button") ◀◀
-      button(type="button") ∥
-      button(type="button") ▶▶
-      button(type="button") ■
-      button(type="button") 🔈
-      input(type="range", style="padding-center:18px", value="0").volume_slider
+    button(type="button")
+      i.fas.fa-fast-backward
+    button(type="button")
+      i.fas.fa-play
+    button(type="button")
+      i.fas.fa-fast-forward
+    button(type="button")
+      i.fas.fa-stop
+    button(type="button") 
+      i.fas.fa-volume-up
+      //- i.fas.fa-volume-down
+      //- i.fas.fa-volume-mute
+    input(type="range", style="padding-center:18px", value="100")

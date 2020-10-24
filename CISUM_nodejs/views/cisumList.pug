@@ -1,7 +1,7 @@
 script(src="/javascripts/cisumList.js")
 link(rel="stylesheet", href="/stylesheets/search.css")
 link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css")
-section.container
+section.container-searchList
     br
     .container-4
         br
@@ -17,4 +17,4 @@ section.container
                     iframe(width="220", height="125", src= "https://www.youtube.com/embed/" + vo.cs_id + "?rel=0", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
                 td= vo.cs_title
                 td
-                    button(type="button", data-id=vo).list-add-button.btn.btn-outline-primary.btn-block 추가
+                    button(type="button", data-id=vo) 추가

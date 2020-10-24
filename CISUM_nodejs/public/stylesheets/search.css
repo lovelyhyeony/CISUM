@@ -1,8 +1,18 @@
+.container-searchList {
+  background-color: rgb(50, 50, 50) !important;
+}
+
+section.container br {
+  background: rgb(50, 50, 50);
+}
+
 .container-4 {
+  background: rgb(50, 50, 50);
   overflow: hidden;
-  width: 100%;
+  width: 90%;
   vertical-align: middle;
   white-space: nowrap;
+  margin: 0 auto;
   text-align: center;
   font-family: "Jua", sans-serif;
 }
@@ -80,6 +90,11 @@
   color: white;
 }
 
+section.container-searchList h2 {
+  margin: 0px 0px 0px 30px;
+}
+
 #search-list-table {
   border-top: 1px solid white;
+  padding: 10px 0px 0px 0px;
 }

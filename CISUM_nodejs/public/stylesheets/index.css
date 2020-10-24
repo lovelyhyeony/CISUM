@@ -78,6 +78,7 @@ nav ul li a {
   text-decoration: none;
   transition: 0.5s;
 }
+
 .fas.fa-check:hover {
   color: var(--accent-color);
   text-decoration: none;
@@ -120,19 +121,30 @@ footer {
   color: white;
 }
 
-footer address {
-  text-align: center;
-  background-color: inherit;
+footer {
+  text-align: left;
+  background-color: rgb(50, 50, 50);
   color: inherit;
-  padding: 1rem;
-  font-family: "Jua", sans-serif;
+  padding: 0.5rem;
 }
 
-footer address a {
-  display: inline-block;
-  font-size: 25px;
-  color: var(--text-color);
-  margin-left: 5px;
+footer button {
+  padding: 5px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+footer button i,
+footer button input {
+  color: var(--accent-color4);
+}
+
+footer button i:hover,
+footer button input:hover {
+  color: white;
+  transition: 0.5s;
 }
 
 th,
