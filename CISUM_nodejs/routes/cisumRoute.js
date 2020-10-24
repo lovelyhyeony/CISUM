@@ -9,7 +9,7 @@ var csVO = require("../models/csVO");
  * @param 'type', 'video' 타입 지정
  * @param 'videoLicense', 'creativeCommon' 크리에이티브 커먼즈 아이템만 불러옴
  */
-router.post("/search", function (req, res) {
+router.post("/search", (req, res) => {
     var word = req.body.word;
     var youtube = new YoutubeNode();
     youtube.setKey("AIzaSyAlDuYSZyqDcJGGZvjbXxgv21_0pGrnKYE");
@@ -17,8 +17,12 @@ router.post("/search", function (req, res) {
     youtube.addParam("type", "video");
     youtube.addParam("videoLicense", "creativeCommon");
     youtube.search(word, 5, function (error, result) {
-        var cisumList = defaultList();
+        var cisumList = [];
+
         if (error) {
+            console.log("트래픽 제한 걸림!");
+            cisumList = defaultList();
+
             res.render("cisumList", {
                 cisumList,
                 search_word: "트래픽 제한 걸림!",
@@ -31,8 +35,8 @@ router.post("/search", function (req, res) {
             var item = itemList[i];
 
             cisumList.push({
-                cs_id: item["snippet"]["title"],
-                cs_title: item["id"]["videoId"],
+                cs_id: item["id"]["videoId"],
+                cs_title: item["snippet"]["title"],
             });
         }
 
@@ -49,7 +53,7 @@ router.post("/search", function (req, res) {
  * @param csVO 모델(DB)에 저장후
  * 메인화면과 /cisum/playlist/ 페이지 연결
  */
-router.post("/addlist", function (req, res) {
+router.post("/addlist", (req, res) => {
     let json = JSON.parse(JSON.stringify(req.body));
     let dataBase = new csVO(json);
     dataBase
@@ -66,7 +70,7 @@ router.post("/addlist", function (req, res) {
  * @TODO 회원가입, 로그인 기능이 추가된다면
  *    유저의 PK 값으로 조건문 달아서 Select 할것
  */
-router.get("/playlist", function (req, res) {
+router.get("/playlist", (req, res) => {
     csVO.find().then(function (csList) {
         res.render("playList", { csList });
     });
@@ -76,7 +80,7 @@ router.get("/playlist", function (req, res) {
  * @param id 는 Spring의 PathVariable 방식으로
  * @url http://localhost:3000/cisum/delete/id 값으로 오면 해당 id 값을 DB에서 찾아서 삭제
  */
-router.get("/delete/:id", function (req, res) {
+router.get("/delete/:id", (req, res) => {
     let _id = req.params.id;
     csVO.findOneAndDelete({ _id })
         .then(function (result) {
@@ -91,15 +95,15 @@ router.get("/delete/:id", function (req, res) {
  * @url http://localhost:3000/cisum/login 로그인 화면 출력
  * @url http://localhost:3000/cisum/join 회원가입 화면 출력
  */
-router.get("/login", function (req, res) {
+router.get("/login", (req, res) => {
     res.render("login", { title: "CISUM Player" });
 });
 
-router.get("/join", function (req, res) {
+router.get("/join", (req, res) => {
     res.render("join", { title: "CISUM Player" });
 });
 
-router.get("/video", function (req, res) {
+router.get("/video", (req, res) => {
     res.render("player");
 });
 
