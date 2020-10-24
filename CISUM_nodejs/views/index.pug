@@ -20,8 +20,10 @@ block content
         div(id="player-body").loading
           include ./player.pug
   footer
-    address Contact US
-      a(href="https://www.youtube.com/")
-        i.fab.fa-youtube
-      a(href="https://www.instagram.com/plutorxr/")
-        i.fab.fa-instagram
+    .w3-half
+      button(type="button") ◀◀
+      button(type="button") ∥
+      button(type="button") ▶▶
+      button(type="button") ■
+      button(type="button") 🔈
+      input(type="range", style="padding-center:18px", value="0").volume_slider

@@ -69,10 +69,6 @@ section.container
     br
     h1 플레이리스트
     table(id="play-list-table").table.table-striped.table-hover.thead-dark.table-borderless
-        tr
-            th 썸네일
-            th 제목
-            th
         each vo, index in csList
             tr(id="play_view_tr_" + index, data-index=index).play-list
                 td(rowspan=2, width="30%")
