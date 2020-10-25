@@ -40,14 +40,13 @@ $(document).ready(function () {
         });
     
     $("i.fas.fa-search").click(function(e){
-        // e.preventDefault();
         $(".search-list").toggle();
         $(".container-searchList").toggleClass("open");
 
         if($(".search-list").hasClass("open")){
-            $(".container-searchList").find("i").attr("class","fas fa-bars");
+            $(".search-list").find("i").attr("class","fas fa-bars");
         } else {
-            $(".container-searchList").find("i").attr("class","fas fa-search");
+            $(".search-list").find("i").attr("class","fas fa-search");
         }
     })
 });
