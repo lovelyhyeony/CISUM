@@ -39,7 +39,7 @@ $(document).ready(function () {
             });
         });
     
-    $("i.fas.fa-bars").click(function(e){
+    $("i.fas.fa-search").click(function(e){
         // e.preventDefault();
         $(".search-list").toggle();
         $(".container-searchList").toggleClass("open");

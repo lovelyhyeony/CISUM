@@ -102,7 +102,7 @@ section#main-section {
   font-family: "Jua", sans-serif;
 }
 
-aside#left-menu .fas.fa-bars {
+aside#left-menu .fas.fa-search {
   display: inline-block;
   margin-left: 30px;
   font-size: 20px;
@@ -110,7 +110,7 @@ aside#left-menu .fas.fa-bars {
   cursor: pointer;
 }
 
-aside#left-menu .fas.fa-bars:hover {
+aside#left-menu .fas.fa-search:hover {
   color: var(--accent-color);
   transition: 0.5s;
 }
