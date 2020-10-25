@@ -9,9 +9,11 @@ block content
         li
           a(href="/").fab.fa-napster
         li 
-          a(id="login_a").fas.fa-check
+          a(id="login_a").fas.fa-toggle-off
+          //- .fas.fa-toggle-on
     section(id="main-section")
       aside(id="left-menu")
+        i.fas.fa-bars
         include ./cisumList.pug
       section(id="content")
         div(id="playlist-body")
@@ -20,16 +22,12 @@ block content
         div(id="player-body").loading
           include ./player.pug
   footer
-    button(type="button")
-      i.fas.fa-fast-backward
-    button(type="button")
-      i.fas.fa-play
-    button(type="button")
-      i.fas.fa-fast-forward
-    button(type="button")
-      i.fas.fa-stop
-    button(type="button") 
-      i.fas.fa-volume-up
-      //- i.fas.fa-volume-down
-      //- i.fas.fa-volume-mute
-    input(type="range", style="padding-center:18px", value="100")
+    div
+      button(type="button").fas.fa-fast-backward
+      button(type="button").fas.fa-play
+      button(type="button").fas.fa-fast-forward
+      button(type="button").fas.fa-stop
+      button(type="button").fas.fa-volume-up
+        //- i.fas.fa-volume-down
+        //- i.fas.fa-volume-mute
+      input(type="range", style="padding-center:18px", value="100")
