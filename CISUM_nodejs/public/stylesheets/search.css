@@ -1,5 +1,6 @@
 .container-searchList {
   background-color: rgb(50, 50, 50) !important;
+  width: 100%;
 }
 
 section.container br {
