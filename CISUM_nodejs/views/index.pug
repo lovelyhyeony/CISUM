@@ -8,13 +8,14 @@ block content
       ul
         li
           a(href="/").fab.fa-napster
-        li 
+        li
           a(id="login_a").fas.fa-toggle-off
           //- .fas.fa-toggle-on
     section(id="main-section")
-      aside(id="left-menu")
+      div.left-aside
         i.fas.fa-search
-        include ./cisumList.pug
+        aside(id="left-menu")
+          include ./cisumList.pug
       section(id="content")
         div(id="playlist-body")
           include ./playList.pug

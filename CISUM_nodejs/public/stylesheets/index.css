@@ -95,14 +95,21 @@ section#main-section {
   font-family: "Jua", sans-serif;
 }
 
-#main-section aside {
+#main-section .left-aside {
   flex: 1px;
   overflow: auto;
   background-color: var(--background-color);
   font-family: "Jua", sans-serif;
 }
 
-aside#left-menu .fas.fa-search {
+#main-section aside#right-menu {
+  flex: 1px;
+  overflow: auto;
+  background-color: var(--background-color);
+  font-family: "Jua", sans-serif;
+}
+
+.left-aside .fas.fa-search {
   display: inline-block;
   margin-left: 30px;
   font-size: 20px;
@@ -110,12 +117,12 @@ aside#left-menu .fas.fa-search {
   cursor: pointer;
 }
 
-aside#left-menu .fas.fa-search:hover {
+.left-aside .fas.fa-search:hover {
   color: var(--accent-color);
   transition: 0.5s;
 }
 
-#main-section section {
+#main-section section#content {
   flex: 3px;
   overflow: auto;
   background-color: var(--background-color2);

@@ -40,13 +40,13 @@ $(document).ready(function () {
         });
     
     $("i.fas.fa-search").click(function(e){
-        $(".search-list").toggle();
+        $(".container-searchList").toggle();
         $(".container-searchList").toggleClass("open");
 
-        if($(".search-list").hasClass("open")){
-            $(".search-list").find("i").attr("class","fas fa-bars");
+        if($(".container-searchList").hasClass("open")){
+            $(".container-searchList").find("i").attr("class","fas fa-bars");
         } else {
-            $(".search-list").find("i").attr("class","fas fa-search");
+            $(".container-searchList").find("i").attr("class","fas fa-search");
         }
     })
 });
@@ -63,13 +63,6 @@ $(document).ready(function () {
             } else {
                 //open이 없을 때
                 $(".btn").find("i").attr("class","fa fa-angle-down");
-            }
-        });
-
-        $(window).resize(function(){
-            var wWidth = $(window).width();
-            if(wWidth > 600){
-                $(".nav").removeAttr("style");
             }
         });
 */
