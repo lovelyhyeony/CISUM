@@ -193,6 +193,14 @@ input[type="range"]:focus {
   outline: none;
 }
 
+footer div h4 {
+  display: inline-block;
+  text-align: right;
+  margin-left: 1000px;
+  color: white;
+  font-family: "Jua", sans-serif;
+}
+
 /* view port화면의 width가 768px보다 작아지면 적용할 CSS */
 @media screen and (max-width: 768px) {
   body {
