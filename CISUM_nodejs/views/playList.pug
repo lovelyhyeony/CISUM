@@ -29,50 +29,32 @@ script.
         $(document).on('mouseover', '.item-handle-list', function() {
             var index = $(this).attr("data-index");
             $("#play_view_tr_" + index).css("border-right", "5px solid rgb(253, 181, 63)")
+            $("#play_view_tr_" + index).css("transition", "0.5s")
         })
 
         $(document).on('mouseover', '.play-list', function() {
             var index = $(this).attr("data-index");
             $("#play_view_tr_" + index).css("border-right", "5px solid rgb(253, 181, 63)")
+            $("#play_view_tr_" + index).css("transition", "0.5s")
         })
 
         $(document).on('mouseleave', '.item-handle-list', function() {
             var index = $(this).attr("data-index");
             $("#play_view_tr_" + index).css("border-right", "5px solid transparent")
+            $("#play_view_tr_" + index).css("transition", "0.5s")
         })
 
         $(document).on('mouseleave', '.play-list', function() {
             var index = $(this).attr("data-index");
             $("#play_view_tr_" + index).css("border-right", "5px solid transparent")
+            $("#play_view_tr_" + index).css("transition", "0.5s")
         })
     });
-
-style.
-    button {
-        margin: 3px;
-        cursor: pointer;
-    }
-
-    .play-list {
-        border-left: 5px solid;
-    }
-
-    tr, td {
-        opacity: 1;
-        cursor: pointer;
-    }
-
-    #play-list-table {
-        border-top: 1px solid white;
-    }
-
-    section.container h1 {
-        margin: 0px 0px 0px 10px;
-    }
+link(rel="stylesheet", href="/stylesheets/playList.css")
 section.container
     br
     h1 플레이리스트
-    table(id="play-list-table").table.table-striped.table-hover.thead-dark.table-borderless
+    table(id="play-list-table").table.table-borderless
         each vo, index in csList
             tr(id="play_view_tr_" + index, data-index=index).play-list
                 td(rowspan=2, width="30%")
@@ -83,6 +65,6 @@ section.container
             tr.play-list
                 td(data-index=index).item-handle-list
                     input(type="hidden", name="index", id="index_input", value=index)
-                    button(type="button", data-id=vo.cs_id, data-index=index).btn-play-handle.btn.btn-outline-light.btn-sm 이 영상 재생
-                    button(type="button", data-id=vo.cs_id).btn-download-handle.btn.btn-outline-success.btn-sm 다운로드
-                    button(type="button", data-id=vo._id).del_btn.btn.btn-outline-danger.btn-sm 목록에서 삭제
+                    button(id="play-btn", type="button", data-id=vo.cs_id, data-index=index) 이 영상 재생
+                    button(id="down-btn", type="button", data-id=vo.cs_id) 다운로드
+                    button(id="delete-btn", type="button", data-id=vo._id) 목록에서 삭제

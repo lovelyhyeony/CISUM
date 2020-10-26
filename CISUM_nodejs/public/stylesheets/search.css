@@ -98,4 +98,24 @@ section.container-searchList h2 {
 #search-list-table {
   border-top: 1px solid white;
   padding: 10px 0px 0px 0px;
+  text-align: left;
+}
+
+#search-list-table td:nth-child(2) {
+  width: 30% !important;
+}
+
+#search-list-table button {
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid dodgerblue;
+  color: dodgerblue;
+  padding: 4px 6px;
+}
+
+#search-list-table button:hover {
+  background: dodgerblue;
+  border: 1px solid transparent;
+  color: white;
+  transition: 0.5s;
 }

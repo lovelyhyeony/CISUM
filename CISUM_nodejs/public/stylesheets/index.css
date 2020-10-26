@@ -153,13 +153,11 @@ footer div button {
   cursor: pointer;
 }
 
-footer div button,
-footer div input {
+footer div button {
   color: var(--accent-color4);
 }
 
-footer div button:hover,
-footer div input:hover {
+footer div button:hover {
   color: white;
   transition: 0.5s;
 }
@@ -167,6 +165,32 @@ footer div input:hover {
 th,
 td {
   color: white;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  height: 10px;
+  width: 10%;
+  cursor: pointer;
+  background: var(--accent-color4);
+  border-radius: 2px;
+  margin-bottom: auto;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  vertical-align: middle !important;
+  -webkit-appearance: none;
+  border: 2px solid var(--accent-color4);
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+input[type="range"]:focus {
+  outline: none;
 }
 
 /* view port화면의 width가 768px보다 작아지면 적용할 CSS */

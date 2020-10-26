@@ -12,7 +12,7 @@ section.container-searchList
         each vo in cisumList
             tr.view-list
                 td 
-                    iframe(width="220", height="125", src= "https://www.youtube.com/embed/" + vo.cs_id + "?rel=0", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
+                    iframe(width="200", height="125", src= "https://www.youtube.com/embed/" + vo.cs_id + "?rel=0", frameborder="0", allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowfullscreen)
                 td= vo.cs_title
                 td
                     button(type="button", data-id=vo) 추가
