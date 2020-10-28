@@ -10,7 +10,7 @@ block content
           a(href="/").fab.fa-napster
         li
           a(id="login_a").fas.fa-toggle-off
-          //- .fas.fa-toggle-on (로그인 완료했을때 나타날 아이콘)
+          //- .fas.fa-toggle-on (로그인 완료했을때 나타날 아이콘) O
     section(id="main-section")
       div.left-aside
         i.fas.fa-search
@@ -23,14 +23,12 @@ block content
         div(id="player-body").loading
           include ./player.pug
   footer
-    div
-      button(type="button").fas.fa-fast-backward
-      button(type="button").fas.fa-play
-      //- i.fas.fa-pause (일시정지했을때 생기는 아이콘)
-      button(type="button").fas.fa-fast-forward
-      button(type="button").fas.fa-stop
-      button(type="button").fas.fa-volume-up
-        //- i.fas.fa-volume-down (볼륨이 줄어들었을때 나타날 아이콘)
-        //- i.fas.fa-volume-mute (볼륨이 0일때 나타날 아이콘)
-      input(type="range", style="padding-center:18px", value="100")
-      h4 플레이 영상 제목
+    div.player-contoller
+      button(type="button", id="prev_btn").fas.fa-fast-backward
+      button(type="button", id="sleep_btn").fas.fa-play
+      button(type="button", id="next_btn").fas.fa-fast-forward
+      button(type="button", id="stop_btn").fas.fa-stop
+      button(type="button", id="sound_btn").fas.fa-volume-up
+      input(type="range", id="volume_slider", style="padding-center:18px", min="0", max="100")
+    div.player-title
+      h4.title 플레이 영상 제목
