@@ -18,18 +18,8 @@ script.
         });
 
         $("#login-btn").click(function() {
-            // 로그인 공백일때의 유효성 체크
             var email = $("#userid").val();
             var password = $("#password").val();
-            if(email == ""){
-                alert("이메일을 입력해주세요 :)")
-                $("#userid").focus();
-                return false;
-            } else if (password == ""){
-                alert("비밀번호를 입력해주세요 :)")
-                $("#password").focus();
-                return false;
-            }
             login(email, password);
             // 유저정보 Get
             getUser();
@@ -37,11 +27,11 @@ script.
             $("div#login-modal").css("display", "none");
         });
     });
-link(rel="stylesheet", href="/stylesheets/login.css")
-article(id="login-body")
+link(rel="stylesheet", href="/stylesheets/user.css")
+article(id="user-body")
     form
-        div.login_close
-            span(id="login-span") &times;
+        div.user_close
+            span(id="user-span") &times;
         h2 LOGIN
         input(name="m_userid", id="userid", placeholder="E-mail", type="text")
         input(name="m_password", id="password", placeholder="Password", type="password")
