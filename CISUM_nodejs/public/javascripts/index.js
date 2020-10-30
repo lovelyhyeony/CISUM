@@ -18,9 +18,11 @@ $(function () {
         },
       });
     } else {
+      // 김민석 똥멍충으로 변경
       alert("김민석 똥멍충!");
     }
   });
+  // 검색 리스트 열리는 js
   $("div#search-icon i.fas.fa-search").click(function (e) {
     $(".left-aside").toggleClass("open");
   });
