@@ -1,9 +1,4 @@
-var tag = document.createElement("script");
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName("script")[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var __player;
-var index = 0;
+let index = 0;
 
 function titleChange(number) {
     document.querySelector("#play_view_tr_" + number).style.borderLeft =
@@ -18,14 +13,13 @@ function titleChange(number) {
 
 function nextVideo() {
     document.querySelector("#play_view_tr_" + index).style.border = "";
-
     index = index + 1;
     let selectFrame = document.getElementById("frame_" + index);
+
     if (selectFrame === null) {
         index = 0;
         selectFrame = document.getElementById("frame_" + index);
     }
-
     var videoId = selectFrame.getAttribute("data-id");
 
     setTimeout(function () {
@@ -37,24 +31,24 @@ function nextVideo() {
 function onYouTubeIframeAPIReady() {
     let frame = document.querySelector("#frame_" + index);
     if (frame !== null) {
-        firstPlayVideo(frame.getAttribute("data-id"));
+        createYouTubePlayer(frame.getAttribute("data-id"));
+        titleChange(0);
     }
 }
 
-function playVideo(id, newIndex) {
+const playVideo = (videoId, newIndex) => {
     document.querySelector("#play_view_tr_" + index).style.borderLeft = "";
-
-    __player.loadVideoById(id, 0, "large");
+    __player.loadVideoById(videoId, 0, "large");
 
     index = newIndex;
     titleChange(index);
-}
+};
 
-function firstPlayVideo(id) {
+const createYouTubePlayer = (videoId) => {
     __player = new YT.Player("player", {
         height: "300%",
         width: "100%",
-        videoId: id,
+        videoId,
 
         playerVars: {
             version: 3,
@@ -76,9 +70,7 @@ function firstPlayVideo(id) {
             onStateChange: onPlayerStateChange,
         },
     });
-
-    titleChange(0);
-}
+};
 
 function onPlayerStateChange(event) {
     if (event.data === 0) {

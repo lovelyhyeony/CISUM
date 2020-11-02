@@ -9,6 +9,8 @@ const firebaseConfig = {
     measurementId: "G-DCHZTY80LM",
 };
 
+var userJson = {};
+
 // 나의 파이어베이스 서버에 연결
 var defaultProject = firebase.initializeApp(firebaseConfig);
 
@@ -21,11 +23,20 @@ function login(email, password) {
     firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
+        .then(function (result) {
+            $("div#login-modal").css("display", "none");
+        })
         .catch(function (error) {
             var errorCode = error.code;
-            var errorMessage = error.message;
             console.log(errorCode);
-            console.log(errorMessage);
+            if (errorCode === "auth/wrong-password") {
+                alert("아이디/비밀번호가 맞지 않습니다!");
+                return;
+            }
+            if (errorCode === "auth/invalid-email") {
+                alert("찾을 수 없는 계정입니다!");
+                return;
+            }
         });
 }
 
@@ -37,8 +48,6 @@ function register(email, password) {
         .catch(function (error) {
             var errorCode = error.code;
             var errorMessage = error.message;
-            console.log(errorCode);
-            console.log(errorMessage);
         });
 }
 
@@ -59,6 +68,16 @@ function getUser() {
             const login_btn = document.getElementById("login_a");
             login_btn.setAttribute("class", "fas fa-toggle-on");
             login_btn.setAttribute("data-email", user.email);
+
+            userJson = {
+                displayName: user.displayName,
+                email: user.email,
+                emailVerified: user.emailVerified,
+                photoURL: user.photoURL,
+                isAnonymous: user.isAnonymous,
+                uid: user.uid,
+                providerData: user.providerData,
+            };
         } else {
             // User is signed out.
             document
@@ -66,4 +85,17 @@ function getUser() {
                 .setAttribute("class", "fas fa-toggle-off");
         }
     });
+}
+
+function logOut() {
+    firebase
+        .auth()
+        .signOut()
+        .then(function () {
+            // Sign-out successful.
+            alert("로그아웃 되었습니다.");
+        })
+        .catch(function (error) {
+            // An error happened.
+        });
 }
