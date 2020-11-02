@@ -110,6 +110,10 @@ router.get("/video", (req, res) => {
     res.render("player");
 });
 
+router.get("/user", (req, res) => {
+    res.render("user");
+});
+
 /**
  * @param id 로 다운로드 받을 유튜브 동영상의 url을 전달받아서
  * 인코딩후 ytdl 를 사용해서 .mp4 동영상 다운로드

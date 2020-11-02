@@ -18,7 +18,8 @@ $(function () {
                 },
             });
         } else {
-            logOut();
+            // logOut();
+            document.location.href = "/cisum/user";
         }
     });
     // 검색 리스트 열리는 js

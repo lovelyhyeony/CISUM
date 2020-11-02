@@ -46,12 +46,26 @@ script.
                 error: function(error){
                     alert("서버 통신 오류 :(")
                 },
+            });    
+        });
+
+        $("#login-back").click(function () {
+            $.ajax({
+                url: "/cisum/login",
+                type: "GET",
+                success: function (result) {
+                    $("div#login-modal").html(result);
+                },
+                error: function (error) {
+                    alert("서버 통신 오류 :(");
+                },
             });
         });
     });
 body
     form(id="join-form", method="post")
         div.join_close
+            a(id="login-back") LOGIN
             span(id="join-span") &times;
         fieldset
             legend 필수 입력 사항
@@ -77,6 +91,6 @@ body
                     td
                         label 생년월일
                     td
-                        input(type="text", id="datepicker", name="cs_date", placeholder="생년월일을 입력해주세요")
+                        input(type="date", id="datepicker", name="cs_date", placeholder="생년월일을 입력해주세요")
         div.join_move_login
             a(id="join-a") 회원가입
