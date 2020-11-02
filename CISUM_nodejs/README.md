@@ -34,8 +34,7 @@
   images/user_noImage.png 추가,  
   javascripts/index.js 변경,  
   stylesheets/index.css, join.css, login.css, user.css 변경,  
-  views/join.pug, login.pug, user.pug 변경
-- lovelyhyeony
+  views/join.pug, login.pug, user.pug 변경 - lovelyhyeony
 
 ### 추가 할 것들(아이디어)
 
