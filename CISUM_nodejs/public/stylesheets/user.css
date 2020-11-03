@@ -49,7 +49,7 @@ article#user-body {
 }
 
 #user-body .user_img {
-  text-align: left;
+  text-align: center;
 }
 
 #user-body form img {
@@ -76,6 +76,28 @@ article#user-body {
   margin: 10px;
 }
 
+#user-body form .button-box {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+#user-body form .button-box button {
+  background-color: dodgerblue;
+  color: var(--text-color);
+  padding: 15px;
+  outline: none;
+  border: 2px solid dodgerblue;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: "Jua", sans-serif;
+}
+
+#user-body form .button-box button:hover {
+  background-color: transparent;
+  color: dodgerblue;
+  transition: 0.5s;
+}
 @keyframes login_box_top_down {
   from {
     top: -300px;
