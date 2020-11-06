@@ -1,6 +1,10 @@
 link(rel="stylesheet", href="/stylesheets/join.css")
 script.
     $(document).ready(function() {
+        채ㅜㄴㅅ email = $("#email").val();
+        채ㅜㄴㅅ password = $("#password").val();
+        채ㅜㄴㅅ re_password = $("#re-password").val();
+
         $("#join-span").click(function () {
             $("form#join-form").css("display", "none");
             $("div#login-modal").css("display", "none");
@@ -8,55 +12,64 @@ script.
 
         // 공백이면 넘어가지 못하게 하는 유효성 체크
         $("#email-check").click(function(){
-            let email = $("#email").val();
-            if(email == ""){
+            if(email === ""){
                 alert("이메일을 입력해주세요 :)")
-                $("#email").focus();
+                email.focus();
                 return false;
             }
         })
 
+        $(re_password).on("change", function() {
+            if (password !== re_password) {
+                $("#status-text").text("비밀번호가 맞지 않습니다!")
+            } else {
+                $("#status-text").text("비밀번호가 일치 합니다.")
+            }
+        });
+
         // 회원가입 버튼 클릭했을때의 유효성 체크
         $(document).on("click", "#join-a", function() {
-            let email = $("#email").val();
-            let password = $("#password").val();
-            let re_password = $("#re-password").val();
-
-            if(email == ""){
+            if(email === ""){
                 alert("이메일을 입력해주세요 :)");
-                $("#email").focus();
-                return false;
-            } else if (password == "") {
+                email.focus();
+                return;
+            } else if (password === "") {
                 alert("비밀번호를 입력해주세요:)");
-                $("#password").focus();
-                return false;
-            } else if (re_password == "") {
+                password.focus();
+                return;
+            } else if (re_password === "") {
                 alert("비밀번호를 다시한번 입력해주세요");
-                $("#re-password").focus();
-                return false;
+                re_password.focus();
+                return;
+            }
+
+            if (password !== re_password) {
+                alert("비밀번호가 같지 않습니다!");
+                password.focus();
+                return;
             }
             
             $.ajax({
                 url: "/cisum/login",
                 type: "GET", 
-                success: function(result) {
+                success:(result) => {
                     register(email, password);
                     $("div#login-modal").html(result);
                 },
-                error: function(error){
+                error:(error) => {
                     alert("서버 통신 오류 :(")
                 },
             });    
         });
 
-        $("#login-back").click(function () {
+        $("#login-back").click(() => {
             $.ajax({
                 url: "/cisum/login",
                 type: "GET",
-                success: function (result) {
+                success: (result) => {
                     $("div#login-modal").html(result);
                 },
-                error: function (error) {
+                error: (error) => {
                     alert("서버 통신 오류 :(");
                 },
             });
@@ -65,7 +78,6 @@ script.
 body
     form(id="join-form", method="post")
         div.join_close
-            //- Login form으로 돌아가는 버튼
             a(id="login-back") Login
             span(id="join-span") &times;
         fieldset
@@ -85,6 +97,8 @@ body
                     td 비밀번호 확인
                     td
                         input(id="re-password", type="password", placeholder="비밀번호 재입력")
+                tr
+                    td(id="status-text")
         fieldset(id="birth-fieldset")
             legend 추가 입력 사항
             table(id="birth")

@@ -23,33 +23,33 @@ router.post("/search", (req, res) => {
     youtube.addParam("type", "video");
     youtube.addParam("videoLicense", "creativeCommon");
     youtube.search(word, 5, function (error, result) {
-    var cisumList = [];
+        var cisumList = [];
 
-    if (error) {
-        console.log("트래픽 제한 걸림!");
-        cisumList = defaultList();
+        if (error) {
+            console.log("트래픽 제한 걸림!");
+            cisumList = defaultList();
 
+            res.render("cisumList", {
+                cisumList,
+                search_word: "트래픽 제한 걸림!",
+            });
+            return;
+        }
+
+        var itemList = result["items"];
+        for (var i in itemList) {
+            var item = itemList[i];
+
+            cisumList.push({
+                cs_id: item["id"]["videoId"],
+                cs_title: item["snippet"]["title"],
+            });
+        }
+        // cisumList = defaultList();
         res.render("cisumList", {
-            cisumList,
-            search_word: "트래픽 제한 걸림!",
+            cisumList: cisumList,
+            search_word: word + " 검색결과",
         });
-        return;
-    }
-
-    var itemList = result["items"];
-    for (var i in itemList) {
-        var item = itemList[i];
-
-        cisumList.push({
-            cs_id: item["id"]["videoId"],
-            cs_title: item["snippet"]["title"],
-        });
-    }
-    // cisumList = defaultList();
-    res.render("cisumList", {
-        cisumList: cisumList,
-        search_word: word + " 검색결과",
-    });
     });
 });
 

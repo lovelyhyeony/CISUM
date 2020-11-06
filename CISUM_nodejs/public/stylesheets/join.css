@@ -101,15 +101,6 @@ table#join-table tr td:first-child {
   text-align: center;
 }
 
-/* input 박스 배경색 제거하는 css 추가 */
-table#join-table input:-webkit-autofill,
-table#join-table input:-webkit-autofill:hover,
-table#join-table input:-webkit-autofill:focus,
-table#join-table input:-webkit-autofill:active {
-  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out" !important;
-  -webkit-transition-delay: 9999s !important;
-}
-
 table#join-table tr td:nth-child(3) {
   margin-left: 5px;
   text-align: center;
