@@ -1,9 +1,9 @@
 link(rel="stylesheet", href="/stylesheets/join.css")
 script.
     $(document).ready(function() {
-        채ㅜㄴㅅ email = $("#email").val();
-        채ㅜㄴㅅ password = $("#password").val();
-        채ㅜㄴㅅ re_password = $("#re-password").val();
+        const email = $("#email").val();
+        const password = $("#password").val();
+        const re_password = $("#re-password").val();
 
         $("#join-span").click(function () {
             $("form#join-form").css("display", "none");
@@ -87,8 +87,6 @@ body
                     td 이메일
                     td
                         input(id="email", type="email", name="cs_email", placeholder="email을 입력해주세요")
-                    td
-                        button(type="btton", id="email-check") 인증
                 tr
                     td 비밀번호
                     td

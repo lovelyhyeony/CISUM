@@ -103,6 +103,18 @@ article#login-body {
   font-weight: bold;
 }
 
+#login-body form .social_logobox {
+  display: flex;
+  justify-content: center;
+}
+
+#login-body form .social_logobox img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
 @keyframes login_box_top_down {
   from {
     top: -300px;
