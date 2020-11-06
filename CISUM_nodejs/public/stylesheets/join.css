@@ -125,6 +125,14 @@ form#join-form input#email {
   width: 100%;
 }
 
+form#join-form input:-webkit-autofill,
+form#join-form input:-webkit-autofill:hover,
+form#join-form input:-webkit-autofill:focus,
+form#join-form input:-webkit-autofill:active {
+  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out" !important;
+  -webkit-transition-delay: 9999s !important;
+}
+
 fieldset#birth-fieldset {
   margin: 15px 0px 0px 0px;
 }

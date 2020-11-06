@@ -19,14 +19,14 @@ script.
 
         $("#login-btn").click(function() {
             // 로그인 공백일때의 유효성 체크
-            var email = $("#userid").val();
-            var password = $("#password").val();
+            var email = $("#userid");
+            var password = $("#password");
 
-            if(email == ""){
+            if(email.val() == ""){
                 alert("이메일을 입력해주세요 :)")
                 email.focus();
                 return false;
-            } else if (password == ""){
+            } else if (password.val() == ""){
                 alert("비밀번호를 입력해주세요 :)")
                 password.focus();
                 return false;
