@@ -1,80 +1,5 @@
+script(src="/javascripts/join.js")
 link(rel="stylesheet", href="/stylesheets/join.css")
-script.
-    $(document).ready(function() {
-        const email = $("#email");
-        const password = $("#password");
-        const re_password = $("#re-password");
-
-        $("#join-span").click(function() {
-            $("form#join-form").css("display", "none");
-            $("div#login-modal").css("display", "none");
-        });
-
-        // 공백이면 넘어가지 못하게 하는 유효성 체크
-        $("#email-check").click( function(){
-            if(email.val() == ""){
-                alert("이메일을 입력해주세요 :)")
-                email.focus();
-                return false;
-            }
-        })
-
-        $(re_password).on("change", function(){
-            if (password.val() != re_password.val()) {
-                $("#status-text").text("비밀번호가 맞지 않습니다!")
-            } else {
-                $("#status-text").text("비밀번호가 일치 합니다.")
-            }
-        });
-
-        // 회원가입 버튼 클릭했을때의 유효성 체크
-        $(document).on("click", "#join-a", function() {
-            if(email.val() == ""){
-                alert("이메일을 입력해주세요 :)");
-                email.focus();
-                return;
-            } else if (password.val() == "") {
-                alert("비밀번호를 입력해주세요:)");
-                password.focus();
-                return;
-            } else if (re_password.val() === "") {
-                alert("비밀번호를 다시한번 입력해주세요");
-                re_password.focus();
-                return;
-            }
-
-            if (password.val() != re_password.val()) {
-                alert("비밀번호가 같지 않습니다!");
-                password.focus();
-                return;
-            }
-            
-            $.ajax({
-                url: "/cisum/login",
-                type: "GET", 
-                success: function(result) {
-                    register(email.val(), password.val());
-                    $("div#login-modal").html(result);
-                },
-                error: function(error) {
-                    alert("서버 통신 오류 :(")
-                },
-            });    
-        });
-
-        $("#login-back").click(function() {
-            $.ajax({
-                url: "/cisum/login",
-                type: "GET",
-                success: function(result) {
-                    $("div#login-modal").html(result);
-                },
-                error: function(error) {
-                    alert("서버 통신 오류 :(");
-                },
-            });
-        });
-    });
 body
     form(id="join-form", method="post")
         div.join_close
@@ -82,11 +7,12 @@ body
             span(id="join-span") &times;
         fieldset
             legend 필수 입력 사항
+            p(id="status-text")
             table(id="join-table")
                 tr
                     td 이메일
                     td
-                        input(id="email", type="email", name="cs_email", placeholder="email을 입력해주세요")
+                        input(id="email", type="email", name="cs_email", placeholder="email을 입력해주세요", spellcheck="false")
                 tr
                     td 비밀번호
                     td
@@ -95,8 +21,6 @@ body
                     td 비밀번호 확인
                     td
                         input(id="re-password", type="password", placeholder="비밀번호 재입력")
-                tr
-                    td(id="status-text")
         fieldset(id="birth-fieldset")
             legend 추가 입력 사항
             table(id="birth")
@@ -106,4 +30,4 @@ body
                     td
                         input(type="text", id="datepicker", name="cs_date", placeholder="생년월일을 입력해주세요")
         div.join_move_login
-            a(id="join-a") 회원가입
+            button(type="button", id="btn-join") 회원가입

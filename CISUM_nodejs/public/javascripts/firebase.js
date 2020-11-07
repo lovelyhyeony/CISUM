@@ -50,18 +50,22 @@ const register = (email, password) => {
     firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
+        .then(() => {
+            $("div#login-modal").html(result);
+        })
         .catch((error) => {
+            const status = $("#status-text");
             var errorCode = error.code;
             var errorMessage = error.message;
 
             if (errorCode === "auth/email-already-in-use") {
-                alert("이미 사용중인 이메일입니다.");
+                status.text("이미 사용중인 이메일입니다.");
             } else if (errorCode === "auth/invalid-email") {
-                alert("메일 주소가 올바르지 않습니다.");
+                status.text("메일 주소가 올바르지 않습니다.");
             } else if (errorCode === "auth/operation-not-allowed") {
-                alert("허가되지 않은 이메일입니다.");
+                status.text("허가되지 않은 이메일입니다.");
             } else if (errorCode === "auth/weak-password") {
-                alert("암호를 좀더 강력하게 해주세요!");
+                status.text("암호를 좀더 강력하게 해주세요!");
             }
         });
 };
@@ -80,6 +84,8 @@ const getUser = () => {
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             // User is signed in.
+            $("div#login-modal").css("display", "none");
+
             const login_btn = document.getElementById("login_a");
             login_btn.setAttribute("class", "fas fa-toggle-on");
             login_btn.setAttribute("data-email", user.email);
