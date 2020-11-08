@@ -33,13 +33,14 @@ const login = (email, password) => {
             $("div#login-modal").css("display", "none");
         })
         .catch((error) => {
+            var status = $("#login-status-text");
             var errorCode = error.code;
             if (errorCode === "auth/wrong-password") {
-                alert("아이디/비밀번호가 맞지 않습니다!");
+                status.text("아이디/비밀번호가 맞지 않습니다.");
                 return;
             }
             if (errorCode === "auth/invalid-email") {
-                alert("찾을 수 없는 계정입니다!");
+                status.text("찾을 수 없는 계정입니다.");
                 return;
             }
         });
@@ -54,7 +55,7 @@ const register = (email, password) => {
             $("div#login-modal").html(result);
         })
         .catch((error) => {
-            const status = $("#status-text");
+            var status = $("#join-status-text");
             var errorCode = error.code;
             var errorMessage = error.message;
 
@@ -65,7 +66,7 @@ const register = (email, password) => {
             } else if (errorCode === "auth/operation-not-allowed") {
                 status.text("허가되지 않은 이메일입니다.");
             } else if (errorCode === "auth/weak-password") {
-                status.text("암호를 좀더 강력하게 해주세요!");
+                status.text("암호를 좀더 강력하게 해주세요.");
             }
         });
 };
@@ -163,7 +164,6 @@ const twitterLoginPopup = () => {
         .auth()
         .signInWithPopup(provider)
         .then(function (authData) {
-            console.log(authData);
         })
         .catch(function (error) {
             console.log(error);
@@ -178,7 +178,6 @@ const facebookLoginPopup = () => {
         .auth()
         .signInWithPopup(provider)
         .then(function (authData) {
-            console.log(authData);
         })
         .catch(function (error) {
             console.log(error);
@@ -193,7 +192,6 @@ const githubLoginPopup = () => {
         .auth()
         .signInWithPopup(provider)
         .then(function (result) {
-            console.log(result);
             console.log("성공!");
         })
         .catch(function (error) {

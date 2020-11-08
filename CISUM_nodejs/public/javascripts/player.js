@@ -56,7 +56,7 @@ const createYouTubePlayer = (videoId) => {
     }
 
     __player = new YT.Player("player", {
-        height: "450%",
+        height: "300%",
         width: "100%",
         videoId,
 

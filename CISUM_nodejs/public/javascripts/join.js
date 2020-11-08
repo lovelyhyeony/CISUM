@@ -7,11 +7,27 @@ $(document).ready(function () {
     const email = $("#email");
     const password = $("#password");
     const re_password = $("#re-password");
-    const status = $("#status-text");
+    const status = $("#join-status-text");
 
     $("#join-span").click(function () {
         $("form#join-form").css("display", "none");
         $("div#login-modal").css("display", "none");
+    });
+
+    $(email).on("propertychange change keyup paste input", function () {
+        if (!emailCheck(email.val())) {
+            status.text("이메일 형식으로 입력해주세요.");
+        } else {
+            status.text("");
+        }
+    });
+
+    $(re_password).on("propertychange change keyup paste input", function () {
+        if (re_password.val() !== password.val()) {
+            status.text("비밀번호가 맞지 않습니다.");
+        } else {
+            status.text("");
+        }
     });
 
     // 공백이면 넘어가지 못하게 하는 유효성 체크
@@ -40,12 +56,12 @@ $(document).ready(function () {
         }
 
         if (!emailCheck(email.val())) {
-            status.text("이메일 형식으로 입력해주세요!");
+            status.text("이메일 형식으로 입력해주세요.");
             return;
         }
 
         if (re_password.val() !== password.val()) {
-            status.text("비밀번호가 맞지 않습니다!");
+            status.text("비밀번호가 맞지 않습니다.");
             return;
         }
 
@@ -72,21 +88,5 @@ $(document).ready(function () {
                 status.text("서버 통신 오류 :(");
             },
         });
-    });
-
-    $(email).on("propertychange change keyup paste input", function () {
-        if (!emailCheck(email.val())) {
-            status.text("이메일 형식으로 입력해주세요!");
-        } else {
-            status.text("");
-        }
-    });
-
-    $(re_password).on("propertychange change keyup paste input", function () {
-        if (re_password.val() !== password.val()) {
-            status.text("비밀번호가 맞지 않습니다!");
-        } else {
-            status.text("");
-        }
     });
 });

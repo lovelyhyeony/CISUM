@@ -173,7 +173,7 @@ button#btn-join:hover {
   transition: 0.5s;
 }
 
-p#status-text {
+p#join-status-text {
   font-family: "Nanum Gothic Coding", monospace;
   color: rgb(158, 27, 27);
 }
