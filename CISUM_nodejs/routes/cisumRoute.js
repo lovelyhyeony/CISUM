@@ -19,8 +19,10 @@ router.post("/search", (req, res) => {
     var word = req.body.word;
     var youtube = new YoutubeNode();
     youtube.setKey("AIzaSyAlDuYSZyqDcJGGZvjbXxgv21_0pGrnKYE");
-    youtube.addParam("order", "rating");
+    youtube.addParam("order", "viewCount");
     youtube.addParam("type", "video");
+    youtube.addParam("regionCode", "kr");
+    youtube.addParam("safeSearch", "none");
     youtube.addParam("videoLicense", "creativeCommon");
     youtube.search(word, 5, function (error, result) {
         var cisumList = [];
@@ -29,9 +31,15 @@ router.post("/search", (req, res) => {
             console.log("트래픽 제한 걸림!");
             cisumList = defaultList();
 
+            if (word == "playlist") {
+                search_word = "playlist";
+            } else {
+                search_word = "트래픽 제한 걸림!";
+            }
+
             res.render("cisumList", {
                 cisumList,
-                search_word: "트래픽 제한 걸림!",
+                search_word,
             });
             return;
         }
@@ -78,6 +86,7 @@ router.post("/addlist", (req, res) => {
 });
 
 /**
+ * @HACK 보완이 필요한 코드
  * @param email params로 받은 email 값을 기준으로 DB 조회해서
  * 해당 email 이랑 일치한 값들만 리스트에 담기
  */
@@ -152,13 +161,13 @@ router.get("/download/:id", (req, res) => {
 function defaultList() {
     var cisumList = [
         {
-            cs_id: "ZRn8wl9Bk0Q",
+            cs_id: "Q9KcDK5mb3o",
             cs_title:
-                "[Playlist] 시원한 공기가 살랑살랑 나를 깨우는 바로 이느낌",
+                "Dua Lipa, Coldplay, Martin Garrix & Kygo, The Chainsmokers Style - Feeling Me #61",
         },
         {
-            cs_id: "juhZlwS0ekw",
-            cs_title: "[playlist] 도입부부터 미쳐버린 팝송모음",
+            cs_id: "1n_hWwDiIXw",
+            cs_title: "기리보이와 자이언티는 새벽영화를 같이 보곤했다",
         },
         {
             cs_id: "dyw8fLSAZs8",
@@ -185,11 +194,6 @@ function defaultList() {
         {
             cs_id: "uPWSIBonxUA",
             cs_title: "[ᴘʟᴀʏʟɪsᴛ] 남한테 알려주기 싫은 트렌디한 팝송 모음 #1",
-        },
-        {
-            cs_id: "22G606t9Vps",
-            cs_title:
-                "Playlist | 뉴욕에서 듣는 크리스마스 캐롤, 코코아 한 잔 들고오기(11 songs)",
         },
         {
             cs_id: "3YRTxyn84mk",
